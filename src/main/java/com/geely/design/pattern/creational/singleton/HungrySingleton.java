@@ -2,7 +2,7 @@ package com.geely.design.pattern.creational.singleton;
 
 import java.io.Serializable;
 
-public class HungrySingleton implements Serializable{
+public class HungrySingleton implements Serializable,Cloneable{
     /**
      * 静态变量初始化
      */
@@ -39,4 +39,11 @@ public class HungrySingleton implements Serializable{
         return hungrySingleton;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        //保持单例
+        return getInstance();
+        //原型模式 拷贝
+//        return super.clone();
+    }
 }
